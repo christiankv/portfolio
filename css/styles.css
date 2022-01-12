@@ -52,7 +52,7 @@
 .choice-list{
     width: 20vw;
     height: 80vh;
-    /* background: red; */
+
 }
 
 .code-display{
@@ -71,5 +71,5 @@ margin: 1em 6em;
 .choselist:hover,.choselist:active{
     background-color: orangered;
     color: black;
-    
+
 }
