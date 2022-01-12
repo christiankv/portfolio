@@ -50,8 +50,9 @@
 }
 
 .choice-list{
-    width: 20vw;
+    width: 200px;
     height: 80vh;
+    min-width: 200px;
 
 }
 
