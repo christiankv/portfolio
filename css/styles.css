@@ -8,7 +8,7 @@
       margin: 0;
       text-align: center;
       background: black;
-      color: orange;
+      color: rgb(0, 255, 85);
   }
 /* .container{
     width: 80vw;
@@ -52,7 +52,7 @@
 .choice-list{
     width: 20vw;
     height: 80vh;
-    background: red;
+    /* background: red; */
 }
 
 .code-display{
@@ -62,3 +62,14 @@
     border: orange solid 2px;
 }
 
+.choselist{
+border: orchid solid 1px;
+background-color: orange;
+border-radius: 3em;
+margin: 1em 6em;
+}
+.choselist:hover,.choselist:active{
+    background-color: orangered;
+    color: black;
+    
+}
