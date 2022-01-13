@@ -2,7 +2,15 @@ const activMenu = document.querySelector(".menu-btn");
 const showmenu = document.querySelector(".menu-column");
 const display = document.querySelector(".code-display");
 const projects = document.querySelector(".choice-list");
+const htmlbtn = document.getElementById("html")
 let ids = document.querySelectorAll(".choselist")
+
+const welcome =`welcome to my portfolio`
+const message = "My name is christian "
+const counter = welcome + message
+let welcomearray = []
+let welcomemessage = ""
+let welcometext = ""
 
 let projectlist = {
     iframe : "html/03.12/index.html",
@@ -12,54 +20,11 @@ let projectlist = {
 }
 let projectslist = []
 
-console.log(projectslist);
+// pagebuilding 
 
+startup()
 
-backbtn()
-
-document.getElementById("backbtn").addEventListener("click", function(){
-    removeelements()
-    startup()
-})
-
-
-for ( let i = 0; i < Object.getOwnPropertyNames(projectlist).length; i++ ){
-projectslist.push(Object.getOwnPropertyNames(projectlist)[i])
-makelist(i)
-}
-
-
-activMenu.addEventListener("mouseover",function() {
-    showmenu.style.display= "flex"
-    document.querySelector(".menu-title").style.display ="none"
-
-})
-activMenu.addEventListener("mouseleave",function() {
-    showmenu.style.display= "none"
-    document.querySelector(".menu-title").style.display ="block"
-})
-
-for (let i= 0 ; i < ids.length; i++ ){
-        ids[i].addEventListener("click",function(){
-            removeelements()
-            if (this.id == "backbtn" ){
-                return
-            }
-            else{
-            let iframelink =  "https://christiankv.github.io/portfolio/" + projectlist[this.id]
-            let createdisplay = document.createElement("iframe");
-            createdisplay.setAttribute("src",iframelink);
-            createdisplay.style.width= "100%";
-            createdisplay.style.height= "100%";
-            createdisplay.classList="iframeDisplay"
-            display.appendChild(createdisplay);
-            }
-
-
-})
-
-}
-
+// functions
 function backbtn(){
     let back = document.createElement("p")
     back.classList= "choselist"
@@ -78,13 +43,7 @@ function makelist(i){
     projects.appendChild(createlist)
     ids = document.querySelectorAll(".choselist")
 }
-const welcome =`welcome to my portfolio`
- ""
-const message = "My name is christian "
-const counter = welcome + message
-let welcomearray = []
-let welcomemessage = ""
-let welcometext = ""
+
 
 
 
@@ -114,8 +73,6 @@ let welcometext = ""
             }
         ,250*i )}
 }
-    
-startup()
 
 // removing elements
 
@@ -124,3 +81,69 @@ function removeelements(){
         display.removeChild(display.lastChild)
     }
 }
+
+function removelist(){
+    while (projects.firstChild){
+        projects.removeChild(projects.lastChild)
+    }
+}
+
+
+
+backbtn()
+// eventlistners
+htmlbtn.addEventListener("click", function(){
+    removelist()
+    backbtn()
+for ( let i = 0; i < Object.getOwnPropertyNames(projectlist).length; i++ ){
+projectslist.push(Object.getOwnPropertyNames(projectlist)[i])
+makelist(i)
+}    
+for (let i= 0 ; i < ids.length; i++ ){
+        ids[i].addEventListener("click",function(){
+            removeelements()
+            if (this.id == "backbtn" ){
+                startup()
+                return
+            }
+            else{
+            let iframelink =  "https://christiankv.github.io/portfolio/" + projectlist[this.id]
+            let createdisplay = document.createElement("iframe");
+            createdisplay.setAttribute("src",iframelink);
+            createdisplay.style.width= "100%";
+            createdisplay.style.height= "100%";
+            createdisplay.classList="iframeDisplay"
+            display.appendChild(createdisplay);
+            }
+})}})
+
+document.getElementById("backbtn").addEventListener("click", function(){
+    removeelements()
+    startup()
+})
+
+// menu bottons
+activMenu.addEventListener("mouseover",function() {
+    showmenu.style.display= "flex"
+    document.querySelector(".menu-title").style.display ="none"
+
+})
+
+activMenu.addEventListener("mouseleave",function() {
+    showmenu.style.display= "none"
+    document.querySelector(".menu-title").style.display ="block"
+})
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
