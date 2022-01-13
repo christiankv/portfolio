@@ -33,14 +33,41 @@ const showhtml = document.getElementById("showhtml")
 const showpage = document.getElementById("showpage")
 let versions = [showhtml, showpage]
 let version = "html"
+let activesite = "none"
+let writing = false
 
 for (let i= 0; i<versions.length; i++ ){
    versions[i].addEventListener("change",function(){
-   version=this.value  
+   version=this.value
+   console.log(activesite);
+   if (activesite ==="none"){
+       return
+   }else{
+     listclick(activesite)  
+   }
+   
+
 //    console.log("the page version is:", version); 
 })
 }
-
+function listclick(id){
+        console.log(version === "html");
+        if( version === "html"){
+            let link = "https://christiankv.github.io/portfolio/" + projectlist[id]
+            removeelements()
+            console.log(link);
+            fetch (link)
+            .then((response) => response.text().then(createhtmlsite));
+        } else if ( version === "page"){
+            let link ="https://christiankv.github.io/portfolio/" + projectlist[id]
+            removeelements()
+        let createdisplay = document.createElement("iframe");
+        createdisplay.setAttribute("src",link);
+        createdisplay.style.width= "100%";
+        createdisplay.style.height= "100%";
+        createdisplay.classList="iframeDisplay active"
+        display.appendChild(createdisplay);
+}}
 function makelist(i){
     let createlist =document.createElement("p");
     createlist.classList = "choselist btn"
@@ -56,8 +83,13 @@ function makelist(i){
 // remove function
 
 document.getElementById("clear").addEventListener("click",function(){
-    removeelements()
-    startup()
+    
+    activesite = "none"
+    if (writing === false){
+       startup() 
+       removeelements()
+    }
+    
 })
 function removeelements(){
     while (display.firstChild){
@@ -88,63 +120,56 @@ htmlbtn.addEventListener("click", function(){
         projectslist.push(Object.getOwnPropertyNames(projectlist)[i])
         console.log(projectlist);
         makelist(i)
-        }   
+        } 
+
 
 
 
 // switching betwene ifram and HTML view
 for (let i= 0 ; i < ids.length; i++ ){
         ids[i].addEventListener("click",function(){
-            console.log(version === "html");
-            if( version === "html"){
-                let link = "https://christiankv.github.io/portfolio/" + projectlist[this.id]
-                removeelements()
-                console.log(link);
-                fetch (link)
-                .then((response) => response.text().then(createhtmlsite));
-            } else if ( version === "page"){
-                let link ="https://christiankv.github.io/portfolio/" + projectlist[this.id]
-                removeelements()
-            let createdisplay = document.createElement("iframe");
-            createdisplay.setAttribute("src",link);
-            createdisplay.style.width= "100%";
-            createdisplay.style.height= "100%";
-            createdisplay.classList="iframeDisplay"
-            display.appendChild(createdisplay);
-}})}})
+            listclick(this.id)
+            writing = false
+        activesite = this.id})}
+})  
 function createhtmlsite(retrievedText){
     console.log(retrievedText);
     let htmltext = document.createElement("pre")
-    htmltext.classList= "htmldisplay"
+    htmltext.classList= "htmldisplay active"
     htmltext.id= "iframehtml"
     htmltext.textContent= retrievedText
     display.appendChild(htmltext)
 
 }
-
  function startup(){
               welcomemessage =  document.createElement("H2") 
               welcometext =  document.createElement("p")
-              projectswindow.style.display= "none"
               
 
     for (let i = 0; i<counter.length; i++){
         setTimeout(()=>{
+        writing = true      
 
-            if (i<welcome.length){            
+            if (i<welcome.length){  
+                        
                 // display.removeChild(display.firstChild)
                 // welcomemessage =  document.createElement("H2")  
                 welcomearray = counter.slice(0,i+1)
                 welcomemessage.textContent = welcomearray
                 display.appendChild(welcomemessage)
+                
+
             }
             else{
                 // display.removeChild(display.firstChild)
-
+                
                 welcomearray = counter.slice(welcome.length,i+1)
                 welcometext.textContent = welcomearray
                 display.appendChild(welcometext)}
                 console.log(welcomearray);
+                if (counter.length - welcomearray - welcome === 0 ){
+                   writing= false
+                }
+                
             }
-        ,150*i )}
-}
+        ,150*i )}}
