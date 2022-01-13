@@ -41,7 +41,7 @@ let writing = false
 for (let i= 0; i<versions.length; i++ ){
    versions[i].addEventListener("change",function(){
    version=this.value
-   console.log(activesite);
+//    console.log(activesite);
    if (activesite ==="none"){
        return
    }else{
@@ -54,7 +54,7 @@ for (let i= 0; i<versions.length; i++ ){
 }
 function listclick(id){
         Wdisplay.style.display = "none"
-        console.log(version === "html");
+        // console.log(version === "html");
         if( version === "html"){
             let link = "https://christiankv.github.io/portfolio/" + projectlist[id]
             removeelements()
@@ -133,7 +133,7 @@ for (let i= 0 ; i < ids.length; i++ ){
         activesite = this.id})}
 })  
 function createhtmlsite(retrievedText){
-    console.log(retrievedText);
+    // console.log(retrievedText);
     let htmltext = document.createElement("pre")
     htmltext.classList= "htmldisplay active"
     htmltext.id= "iframehtml"
@@ -166,7 +166,7 @@ function createhtmlsite(retrievedText){
                 welcomearray = counter.slice(welcome.length,i+1)
                 welcometext.textContent = welcomearray
                 Wdisplay.appendChild(welcometext)}
-                console.log(welcomearray);
+                // console.log(welcomearray);
                 if (counter.length - welcomearray - welcome === 0 ){
                    writing= false
                 }
