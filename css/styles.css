@@ -64,14 +64,22 @@
     border: orange solid 2px; */
 }
 
-.choselist{
+.btn{
 border: orchid solid 1px;
 background-color: orange;
 border-radius: 3em;
 
 }
-.choselist:hover,.choselist:active{
+.btn:hover,.btn:active{
     background-color: orangered;
     color: black;
 
+}
+
+.htmldisplay{
+    text-align: left;
+}
+
+.projectslist{
+    display: none;
 }
