@@ -115,3 +115,7 @@ height: 80vh;
     height: 80vh;
     align-items: center;
 }
+.activebtn{
+    background-color: chocolate;
+    color: darkgreen;
+}

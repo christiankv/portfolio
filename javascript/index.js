@@ -57,6 +57,7 @@ for (let i= 0; i<versions.length; i++ ){
 }
 function listclick(id){
         Wdisplay.style.display = "none"
+
         // console.log(version === "html");
         if( version === "html"){
             let link = "https://christiankv.github.io/portfolio/" + projectlist[id]+"index.html"
@@ -82,7 +83,9 @@ function listclick(id){
 
             }
 }
-function makelist(i){
+function makelist(){
+    for ( let i = 0; i < Object.getOwnPropertyNames(projectlist).length; i++ ){
+        projectslist.push(Object.getOwnPropertyNames(projectlist)[i])
     let createlist =document.createElement("p");
     createlist.classList = "choselist btn"
     createlist.id = projectslist[i]
@@ -90,7 +93,7 @@ function makelist(i){
     projects.appendChild(createlist)
     ids = document.querySelectorAll(".choselist")
     // console.log(ids);
-}
+}}
 
 
 
@@ -110,6 +113,7 @@ function removeelements(){
 function removelist(){
     while (projects.firstChild){
         projects.removeChild(projects.lastChild)
+
     }
 }
 // menu area
@@ -126,11 +130,7 @@ activMenu.addEventListener("mouseleave",function() {
 htmlbtn.addEventListener("click", function(){
     projectswindow.style.display= "block"
     removelist()
-    for ( let i = 0; i < Object.getOwnPropertyNames(projectlist).length; i++ ){
-        projectslist.push(Object.getOwnPropertyNames(projectlist)[i])
-        // console.log(projectlist);
-        makelist(i)
-        } 
+    makelist()
 
 
 
@@ -138,10 +138,14 @@ htmlbtn.addEventListener("click", function(){
 // switching betwene ifram and HTML view
 for (let i= 0 ; i < ids.length; i++ ){
         ids[i].addEventListener("click",function(){
+            // document.getElementById(this.id).style.color="green"
+            activesite.classList = "choselist btn"
             display.style.display = "block"
             listclick(this.id)
             writing = false
-        activesite = this.id})}
+        activesite = this.id
+        activesite.classList += " activebtn"
+    })}
 })  
 function createhtmlsite(retrievedText){
     // console.log(retrievedText);
@@ -172,3 +176,10 @@ function writer(text,element){
             element.textContent += tempmessage
             // Wdisplay.appendChild(element)
         },75*i)}}
+
+function buttoncolor(){
+    for (let i= 0 ; i < ids.length; i++ ){
+    document.getElementById(ids[i]).style.color="green"  
+      }
+    
+}
