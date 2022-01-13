@@ -1,6 +1,7 @@
 const activMenu = document.querySelector(".menu-btn");
 const showmenu = document.querySelector(".menu-column");
 const display = document.querySelector(".code-display");
+const Wdisplay = document.querySelector(".welcome-display");
 const projects = document.querySelector(".choice-list");
 const htmlbtn = document.getElementById("html")
 const projectswindow = document.querySelector(".projectslist")
@@ -10,6 +11,7 @@ let ids = document.querySelectorAll(".choselist")
 const welcome =`welcome to my portfolio`
 const message = "My name is christian. im a 30 years old guy that is learing programing at kodehode."
 const counter = welcome + message
+let writer = ""  
 let welcomearray = []
 let welcomemessage = ""
 let welcometext = ""
@@ -51,6 +53,7 @@ for (let i= 0; i<versions.length; i++ ){
 })
 }
 function listclick(id){
+        Wdisplay.style.display = "none"
         console.log(version === "html");
         if( version === "html"){
             let link = "https://christiankv.github.io/portfolio/" + projectlist[id]
@@ -83,13 +86,9 @@ function makelist(i){
 // remove function
 
 document.getElementById("clear").addEventListener("click",function(){
-    
+    Wdisplay.style.display = "flex"
     activesite = "none"
-    if (writing === false){
-       startup() 
-       removeelements()
-    }
-    
+    removeelements()    
 })
 function removeelements(){
     while (display.firstChild){
@@ -128,6 +127,7 @@ htmlbtn.addEventListener("click", function(){
 // switching betwene ifram and HTML view
 for (let i= 0 ; i < ids.length; i++ ){
         ids[i].addEventListener("click",function(){
+            display.style.display = "block"
             listclick(this.id)
             writing = false
         activesite = this.id})}
@@ -144,10 +144,10 @@ function createhtmlsite(retrievedText){
  function startup(){
               welcomemessage =  document.createElement("H2") 
               welcometext =  document.createElement("p")
-              
+          
 
     for (let i = 0; i<counter.length; i++){
-        setTimeout(()=>{
+        writer= setTimeout(()=>{
         writing = true      
 
             if (i<welcome.length){  
@@ -156,7 +156,7 @@ function createhtmlsite(retrievedText){
                 // welcomemessage =  document.createElement("H2")  
                 welcomearray = counter.slice(0,i+1)
                 welcomemessage.textContent = welcomearray
-                display.appendChild(welcomemessage)
+                Wdisplay.appendChild(welcomemessage)
                 
 
             }
@@ -165,7 +165,7 @@ function createhtmlsite(retrievedText){
                 
                 welcomearray = counter.slice(welcome.length,i+1)
                 welcometext.textContent = welcomearray
-                display.appendChild(welcometext)}
+                Wdisplay.appendChild(welcometext)}
                 console.log(welcomearray);
                 if (counter.length - welcomearray - welcome === 0 ){
                    writing= false

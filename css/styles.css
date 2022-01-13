@@ -60,12 +60,10 @@
 .code-display{
     display: flex;
     flex-direction: column;
-    /* /* justify-content: center; */
+    /* justify-content: center; */
 
     width: 60vw;
     height: 80vh;
-    /* background: red;
-    border: orange solid 2px; */
 }
 
 .btn{
@@ -89,4 +87,23 @@ border-radius: 3em;
     position: absolute;
     left: 2vw;
     top: 20vh
+}
+.welcome-display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.code-display{
+    display: none;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 100%;
+    height: 100%;
+}
+
+.display-container{
+    width: 60vw;
+    height: 80vh;
 }
