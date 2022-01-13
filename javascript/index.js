@@ -9,18 +9,20 @@ let ids = document.querySelectorAll(".choselist")
 
 
 const welcome =`welcome to my portfolio`
-const message = "My name is christian. im a 30 years old guy that is learing programing at kodehode."
-const counter = welcome + message
-let writer = ""  
+const message1 = "My name is christian. im a 30 years old guy that is learing programing at kodehode."
+const message2 = "My name is christian. im a 30 years old guy that is learing programing at kodehode."
+// const counter = welcome + message
+let textcollection = [welcome, message1, message2]
+// let writer = ""  
 let welcomearray = []
 let welcomemessage = ""
 let welcometext = ""
 
 let projectlist = {
-    iframe : "html/03.12/index.html",
-    forms : "html/06.12/index.html",
-    transitions : "html/transitions/index.html",
-    Animations : "html/animations/index.html"
+    iframe : "html/03.12/",
+    forms : "html/06.12/",
+    transitions : "html/transitions/",
+    Animations : "html/animations/"
 }
 let projectslist = []
 
@@ -31,9 +33,10 @@ startup()
 
 
 // html area
+const showcss = document.getElementById("showcss")
 const showhtml = document.getElementById("showhtml")
 const showpage = document.getElementById("showpage")
-let versions = [showhtml, showpage]
+let versions = [showhtml, showpage,showcss]
 let version = "html"
 let activesite = "none"
 let writing = false
@@ -56,13 +59,13 @@ function listclick(id){
         Wdisplay.style.display = "none"
         // console.log(version === "html");
         if( version === "html"){
-            let link = "https://christiankv.github.io/portfolio/" + projectlist[id]
+            let link = "https://christiankv.github.io/portfolio/" + projectlist[id]+"index.html"
             removeelements()
             console.log(link);
             fetch (link)
             .then((response) => response.text().then(createhtmlsite));
         } else if ( version === "page"){
-            let link ="https://christiankv.github.io/portfolio/" + projectlist[id]
+            let link ="https://christiankv.github.io/portfolio/" + projectlist[id] +"index.html"
             removeelements()
         let createdisplay = document.createElement("iframe");
         createdisplay.setAttribute("src",link);
@@ -70,7 +73,15 @@ function listclick(id){
         createdisplay.style.height= "100%";
         createdisplay.classList="iframeDisplay active"
         display.appendChild(createdisplay);
-}}
+            }else if ( version === "css"){
+                let link ="https://christiankv.github.io/portfolio/" + projectlist[id]+ "/css/style.css"
+                removeelements()
+                console.log(link);
+                fetch (link)
+            .then((response) => response.text().then(createhtmlsite));
+
+            }
+}
 function makelist(i){
     let createlist =document.createElement("p");
     createlist.classList = "choselist btn"
@@ -117,7 +128,7 @@ htmlbtn.addEventListener("click", function(){
     removelist()
     for ( let i = 0; i < Object.getOwnPropertyNames(projectlist).length; i++ ){
         projectslist.push(Object.getOwnPropertyNames(projectlist)[i])
-        console.log(projectlist);
+        // console.log(projectlist);
         makelist(i)
         } 
 
@@ -134,42 +145,30 @@ for (let i= 0 ; i < ids.length; i++ ){
 })  
 function createhtmlsite(retrievedText){
     // console.log(retrievedText);
-    let htmltext = document.createElement("pre")
+    let htmltext = document.createElement("textarea")
     htmltext.classList= "htmldisplay active"
     htmltext.id= "iframehtml"
+    htmltext.readOnly = true
     htmltext.textContent= retrievedText
     display.appendChild(htmltext)
 
 }
  function startup(){
-              welcomemessage =  document.createElement("H2") 
-              welcometext =  document.createElement("p")
-          
+        let welcomemessage =  document.createElement("H2");
+        let welcometext1 =  document.createElement("p");
+        let welcometext2 = document.createElement("p");
+        let writinglist=[ welcomemessage, welcometext1, welcometext2]
+for (let i = 0; i < writinglist.length; i++){
+    Wdisplay.appendChild(writinglist[i])
+// console.log(textcollection[i]); 
+    writer(textcollection[i],writinglist[i])
+}}
 
-    for (let i = 0; i<counter.length; i++){
-        writer= setTimeout(()=>{
-        writing = true      
-
-            if (i<welcome.length){  
-                        
-                // display.removeChild(display.firstChild)
-                // welcomemessage =  document.createElement("H2")  
-                welcomearray = counter.slice(0,i+1)
-                welcomemessage.textContent = welcomearray
-                Wdisplay.appendChild(welcomemessage)
-                
-
-            }
-            else{
-                // display.removeChild(display.firstChild)
-                
-                welcomearray = counter.slice(welcome.length,i+1)
-                welcometext.textContent = welcomearray
-                Wdisplay.appendChild(welcometext)}
-                // console.log(welcomearray);
-                if (counter.length - welcomearray - welcome === 0 ){
-                   writing= false
-                }
-                
-            }
-        ,150*i )}}
+function writer(text,element){
+    for (let i = 0; i<text.length; i++){
+        // console.log(text[i])
+        setTimeout(()=>{
+           let tempmessage = text.slice(i, i+1)
+            element.textContent += tempmessage
+            // Wdisplay.appendChild(element)
+        },75*i)}}
