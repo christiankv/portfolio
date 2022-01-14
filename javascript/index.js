@@ -198,7 +198,7 @@ for (let i= 0 ; i < ids.length; i++ ){
 function activepage(){
     // versions = [showhtml, showpage,showcss]
     for (let i= 0; i<versions.length; i++ ){
-        versions[i].addEventListener("click",function(){
+        versions[i].addEventListener("change",function(){
         version=this.value
         console.log(activesite);
         if (activesite ==="none"){
