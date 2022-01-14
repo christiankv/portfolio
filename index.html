@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="menu-btn">
+    <div class="menu-btn menuslide">
         <h2 class="menu-title">menu</h2>
 
         <div class="menu-column">
@@ -23,29 +23,37 @@
 
     </header>
     <main>
-        <div class="container">
+        <div class="container ">
             <div class="columns">
-                <div class="projectslist">
-                    <h3>projects</h3>
-                    <label for="showhtml">html</label>
-                    <input type="radio" name="displaymode" id="showhtml" value="html"checked>
-                    <label for="showpage">page</label>
-                    <input type="radio" name="displaymode" id="showpage" value="page" >
-                    <label for="showcss">css</label>
-                    <input type="radio" name="displaymode" id="showcss" value="css" >
-                    <p class="btn" id=clear>home</p>
-                    <div class="choice-list">
+                <div class="projectslist ">
+                    <div class="projectlistheader">
+                        <h2 class="sidebar-title">projects</h2>
+                        <div class="sidebar-display">
+                            <div class="radiodisplay">
+                        <label class="btn" for="showhtml">html<input type="radio" name="displaymode" id="showhtml" value="html"></label>
+                        
+                        <label class="btn" for="showpage">page<input type="radio" name="displaymode" id="showpage" value="page"checked ></label>
+                        
+                        <label class="btn" for="showcss">css<input type="radio" name="displaymode" id="showcss" value="css" ></label>
+                            </div>
+
+                        
+                        <p class="btn" id=clear>home</p>
+                        <div class="choice-list">
+                        </div>  
+                        </div>
 
                     </div>
+
             
 
 
                 </div>
                 <div class="display-container">
-                <div class="welcome-display"></div>
-                <div class="code-display">
-                    <textarea name="code" id="codearea" cols="30" rows="10"></textarea>
-                </div>
+                    <div class="welcome-display"></div>
+                    <div class="code-display">
+                        <textarea name="code" id="codearea" cols="30" rows="10"></textarea>
+                    </div>
                 </div>
 
                 
