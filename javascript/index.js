@@ -26,7 +26,8 @@ let projectlist = {
     iframe : "html/03.12/",
     forms : "html/06.12/",
     transitions : "html/transitions/",
-    Animations : "html/animations/"
+    Animations : "html/animations/",
+    psudoelements : "html/psudoelements"
 }
 let projectslist = []
 const htmlpages = ["html", "page", "css"]
