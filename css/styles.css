@@ -20,7 +20,7 @@
     border-radius: 0 50% 50% 0;
     width: 5rem;
     /* height: 4vh; */
-    background: greenyellow;
+    background: rgb(173, 255, 47);
     display: flex;
     justify-content: space-evenly;
     position: absolute;
@@ -29,8 +29,6 @@ top: 0;
 
     transition: height 5000ms, width 250ms, border-radius 250ms;
 }
-
-
 
 
 

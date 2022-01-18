@@ -10,7 +10,10 @@ const projectswindow = document.querySelector(".projectslist")
 const showcss = document.getElementById("showcss")
 const showhtml = document.getElementById("showhtml")
 const showpage = document.getElementById("showpage")
+const showjs = document.getElementById("showjs")
 let ids = document.querySelectorAll(".choselist")
+const jsvbtn = document.querySelector(".jsbtn")
+const htvbtn = document.querySelector(".htbtn")
 
 
 const welcome =`welcome to my portfolio`
@@ -44,15 +47,27 @@ let projectlistjs = {
 }
 let projectslist = []
 const htmlpages = ["html", "page", "css"]
-const htmlpageids = ["showhtml", "showpage", "showcss"]
+const htmlpageids = ["showhtml", "showpage", "showcss", "showjs"]
 
-let versions = [showhtml, showpage,showcss]
+let versions = [showhtml, showpage,showcss,showjs]
 let version = "page"
 let activesite = "none"
 let writing = false
+const radht = document.getElementById("htmlradbox")
+const radjs = document.getElementById("jsradbox")
+let radbtns = [radht, radjs]
 
 
 // functions
+function clearradio(){
+    for (let i = 0; i<radbtns.length; i++){
+        radbtns[i].style.display= "none"
+    }
+}
+function clearprojects(){
+projectslist = []
+}
+
 function createradiobtn(ids, values){
     for (let i = 0; i< ids.length; i++){
         label = document.createElement("label")
@@ -251,6 +266,11 @@ function activepage(){
 startup()
 htmlbtn.addEventListener("click", function(){
     projectswindow.style.display= "block"
+    version="page"
+    clearprojects()
+    clearradio()
+    radht.style.display = "flex"
+
     removelist()
     makelistHtml()
     // createradiobtn(htmlpageids, htmlpages)
@@ -270,7 +290,10 @@ htmlbtn.addEventListener("click", function(){
 
 jsbtn.addEventListener("click", function(){
     projectswindow.style.display= "block"
+    clearradio()
+    radjs.style.display = "block"
     version = "javascript"
+    clearprojects()
     removelist()
     makelistjs()
     projectlistbutton()
