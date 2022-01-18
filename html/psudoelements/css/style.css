@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: cyan;
+    color: darkslategray;
+    /* width: 60vw; */
+}
+.container{  
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    width: 60vw;}
+
+h1::first-line, h2::first-line{
+    background-color: rgb(235, 238, 39);
+    text-decoration: crimson wavy  underline;
+}
+h1::first-letter,h2::first-letter,p::first-letter{
+    color: darkblue;
+    font-size: 2em;
+}
+li::marker{
+    color: firebrick;
+    font-size: 1.5em;
+}
+h2::first-letter{
+    /* color: darkred; */
+    animation:  firstletter 5s ease infinite;
+
+    transform: color ;
+}
+
+@keyframes firstletter{
+    
+       0%{color:darkblue;}
+       50%{color:rgb(109, 139, 0);}
+       100%{color:darkblue;}
+}
