@@ -3,9 +3,19 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: cyan;
-    color: darkslategray;
+background-image: radial-gradient(cyan 60%,yellow 80%);
+    color: rgb(29, 47, 47);
     /* width: 60vw; */
+
+
+}
+
+h1,h2{
+    font-size: 2rem;
+}
+
+p, li{
+    font-size: 1.5rem;
 }
 .container{  
     display: flex;
@@ -14,27 +24,25 @@ body{
     width: 60vw;}
 
 h1::first-line, h2::first-line{
-    background-color: rgb(235, 238, 39);
-    text-decoration: crimson wavy  underline;
+    /* background-color: rgb(235, 238, 39); */
+    text-decoration: crimson  underline;
 }
 h1::first-letter,h2::first-letter,p::first-letter{
     color: darkblue;
     font-size: 2em;
+    font-weight: 900;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: rgba(0, 0, 0, 0.250) 0.2rem 0.2rem ;
+    text-decoration: none;
 }
+
 li::marker{
     color: firebrick;
     font-size: 1.5em;
 }
-h2::first-letter{
-    /* color: darkred; */
-    animation:  firstletter 5s ease infinite;
 
-    transform: color ;
-}
 
-@keyframes firstletter{
-    
-       0%{color:darkblue;}
-       50%{color:rgb(109, 139, 0);}
-       100%{color:darkblue;}
-}
+
+/* ::selection{
+    font-size: 1rem;
+} */
