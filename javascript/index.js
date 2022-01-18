@@ -5,6 +5,7 @@ const Wdisplay = document.querySelector(".welcome-display");
 const projects = document.querySelector(".choice-list");
 const projectsheader = document.querySelector(".projectlistheader")
 const htmlbtn = document.getElementById("html")
+const jsbtn = document.getElementById("javascript")
 const projectswindow = document.querySelector(".projectslist")
 const showcss = document.getElementById("showcss")
 const showhtml = document.getElementById("showhtml")
@@ -22,12 +23,24 @@ let welcomearray = []
 let welcomemessage = ""
 let welcometext = ""
 
-let projectlist = {
+let projectlistHtml = {
     iframe : "html/03.12/",
     forms : "html/06.12/",
     transitions : "html/transitions/",
     Animations : "html/animations/",
-    psudoelements : "html/psudoelements"
+    psudoelements : "html/psudoelements/",
+    lists : "html/task22.11/",
+    borders : "html/task26.11/oppg2/",
+    paralexsite : "html/task26.11/opp1/"
+
+}
+
+let projectlistjs = {
+    oppg1 : "javascript/25.11/",
+    oppg2 : "javascript/25.11/oppg1/",
+    oppg3 : "javascript/25.11/oppg2/",
+    oppg4 : "javascript/02.12/",
+    oppg5 : "javascript/09.12/"
 }
 let projectslist = []
 const htmlpages = ["html", "page", "css"]
@@ -56,15 +69,26 @@ function createradiobtn(ids, values){
 
 }
 
-function makelist(){
-        for ( let i = 0; i < Object.getOwnPropertyNames(projectlist).length; i++ ){
-            projectslist.push(Object.getOwnPropertyNames(projectlist)[i])
+function makelistHtml(){
+        for ( let i = 0; i < Object.getOwnPropertyNames(projectlistHtml).length; i++ ){
+            projectslist.push(Object.getOwnPropertyNames(projectlistHtml)[i])
         let createlist =document.createElement("p");
         createlist.classList = "choselist btn"
         createlist.id = projectslist[i]
         createlist.textContent=projectslist[i];
         projects.appendChild(createlist)
         ids = document.querySelectorAll(".choselist")}
+}
+
+function makelistjs(){
+    for ( let i = 0; i < Object.getOwnPropertyNames(projectlistjs).length; i++ ){
+        projectslist.push(Object.getOwnPropertyNames(projectlistjs)[i])
+    let createlist =document.createElement("p");
+    createlist.classList = "choselist btn"
+    createlist.id = projectslist[i]
+    createlist.textContent=projectslist[i];
+    projects.appendChild(createlist)
+    ids = document.querySelectorAll(".choselist")}
 }
 
 function removelist()
@@ -79,16 +103,25 @@ function removeelements(){
 }
 
 // projects list buttons 
+// function jsdisplay(){
+//     Wdisplay.style.display = "none"
+//     let link = "https://christiankv.github.io/portfolio/" + projectlistjs[id]+"index.js"
+//     removeelements()
+//     console.log(link);
+//     fetch (link)
+//     .then((response) => response.text().then(createhtmlsite));
+// }
+
 function listclick(id){
     Wdisplay.style.display = "none"
     if( version === "html"){
-        let link = "https://christiankv.github.io/portfolio/" + projectlist[id]+"index.html"
+        let link = "https://christiankv.github.io/portfolio/" + projectlistHtml[id]+"index.html"
         removeelements()
         console.log(link);
         fetch (link)
         .then((response) => response.text().then(createhtmlsite));
     } else if ( version === "page"){
-        let link ="https://christiankv.github.io/portfolio/" + projectlist[id] +"index.html"
+        let link ="https://christiankv.github.io/portfolio/" + projectlistHtml[id] +"index.html"
         removeelements()
     let createdisplay = document.createElement("iframe");
     createdisplay.setAttribute("src",link);
@@ -97,12 +130,19 @@ function listclick(id){
     createdisplay.classList="iframeDisplay active"
     display.appendChild(createdisplay);
         }else if ( version === "css"){
-            let link ="https://christiankv.github.io/portfolio/" + projectlist[id]+ "/css/style.css"
+            let link ="https://christiankv.github.io/portfolio/" + projectlistHtml[id]+ "/css/style.css"
             removeelements()
             console.log(link);
             fetch (link)
         .then((response) => response.text().then(createhtmlsite));
 
+        } else if(version ==="javascript"){
+            Wdisplay.style.display = "none"
+            let link = "https://christiankv.github.io/portfolio/" + projectlistjs[id]+"index.js"
+            removeelements()
+            console.log(link);
+            fetch (link)
+            .then((response) => response.text().then(createhtmlsite));
         }
 }
 function createhtmlsite(retrievedText){
@@ -146,11 +186,7 @@ sidebareslide.addEventListener("mouseaway",function(){
     for (i=0;i<buttons.length;i++){
         buttons[i].style.display= "none"
     }
-})    
-}
-
-
-
+})}
 // welcome message function 
 function startup(){
     let welcomemessage =  document.createElement("H2");
@@ -216,7 +252,7 @@ startup()
 htmlbtn.addEventListener("click", function(){
     projectswindow.style.display= "block"
     removelist()
-    makelist()
+    makelistHtml()
     // createradiobtn(htmlpageids, htmlpages)
     projectlistbutton()
     activepage()
@@ -232,6 +268,22 @@ htmlbtn.addEventListener("click", function(){
     }
 })
 
-
-
-
+jsbtn.addEventListener("click", function(){
+    projectswindow.style.display= "block"
+    version = "javascript"
+    removelist()
+    makelistjs()
+    projectlistbutton()
+    activepage()
+    homebtn()
+    try {
+        sidebar()
+    }catch{
+        const buttons = document.querySelectorAll(".btn")
+        for (i=0;i<buttons.length;i++){
+            console.log(buttons[i]);
+            buttons[i].style.display= "block"
+        }
+    }
+    
+})
