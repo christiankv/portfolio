@@ -38,6 +38,7 @@ top: 0;
     width: 6rem;
     border-radius: 0 10% 10% 0;
     min-height: 150px;
+    cursor: pointer;
 
 }
 .menu-column{
@@ -66,6 +67,7 @@ color: green;
     background-color: green;
     color: black;
     border-radius: 2px;
+    cursor: pointer;
 
 }
 
