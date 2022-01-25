@@ -1,13 +1,10 @@
 const daily = document.getElementById("daily")
 const weekly = document.getElementById("weekly")
 const monthly = document.getElementById("monthly")
-
 const menu= [daily, weekly, monthly]
-
 const dailyli = document.querySelectorAll(".daily") 
 const weeklyli = document.querySelectorAll(".weekly") 
 const monthlyli = document.querySelectorAll(".monthly") 
-
 const activityselector = [dailyli, weeklyli, monthlyli]
 
 for (let i=0;i<menu.length;i++){
@@ -37,6 +34,4 @@ function menuclick(i, id){
             
         });
     }
-
-    // document.querySelectorall(`.${this.id}`).style.display = "flex";
 }

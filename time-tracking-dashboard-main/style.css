@@ -181,6 +181,9 @@ p{
     /* cursor: pointer; */
     z-index: 3;
 }
+.activity-Con:hover{
+    background: hsl(238, 45%, 30%);
+}
 
 
 
@@ -204,7 +207,7 @@ p{
         width: 20vw;
         flex-direction: column;
         margin-right: 2vw;
-        justify-content:space-between
+        justify-content:flex-start
 
     }
     .profile{
@@ -216,6 +219,7 @@ p{
         flex-direction: column;
         justify-content: space-evenly;
         padding: 0;
+        height: 100%;
     }.activity-wideflex{
         display: flex;
         justify-content: space-between;
@@ -258,8 +262,11 @@ button{
     background: none;
     cursor: pointer;
 }
-svg:hover{
-    fill: "white";
+svg{
+    fill: #BBC0FF
+}
+button:hover svg{
+    fill: white;
     
 }
 
