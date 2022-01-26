@@ -12,7 +12,7 @@ class human:
         print(self.atk)
 
 
-wolfie = human("wolfie",20,4)
+wolfie = human("wolfie",20,2)
 
 
 wolfie.stats()
