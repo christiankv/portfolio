@@ -14,11 +14,6 @@ except ImportError:
             except NameError:
                 print("no hope")
 
-            
-
-            
-
-
 finally:
     print("yup python is way to hard for you")
 
