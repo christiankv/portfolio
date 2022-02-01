@@ -1,0 +1,16 @@
+body { 
+    margin: 0;
+    background-color: wheat;
+}
+
+img {
+    height: 94vh;
+    border-collapse: separate;
+    border-radius: 30px;
+    margin: 3vh;
+    /* border: thistle double 3vh; */
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
