@@ -6,6 +6,7 @@ body{
     width: 100vw;
     margin: 0;   
     background: rgb(41, 53, 75);
+    font-size: 18px;
 }
 
 header{
