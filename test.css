@@ -67,6 +67,7 @@ header{
     border: outset;
     background-color: darkslategray;
     padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
 
     border-radius: 30%;
     color: white;
