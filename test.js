@@ -1,152 +1,121 @@
-// const activMenu = document.querySelector(".menu-btn");
-// const showmenu = document.querySelector(".menu-column");
-// const display = document.querySelector(".code-display");
-// const projects = document.querySelector(".choice-list");
-// const htmlbtn = document.getElementById("html")
-// const projectswindow = document.querySelector(".projectslist")
-// let ids = document.querySelectorAll(".choselist")
+const codebox = document.getElementById("codearea")
+const projects = document.querySelector(".projects")
+let version = "showpage"
+let projectslist = []
+let pageevents = []
+let menu = [
+    html =  document.getElementById("html"),
+    javascript = document.getElementById("javascript"),
+    python = document.getElementById("python"),
+    scrimba =  document.getElementById("scrimba")
+]
 
+let radbox = [
+    radhtml = document.getElementById("showhtml"),
+    radpage = document.getElementById("showpage"),
+    radcss = document.getElementById("showcss"),
+    radjavascript = document.getElementById("showjs")
 
-// const welcome =`welcome to my portfolio`
-// const message = "My name is christian. im a 30 years old guy that is learing programing at kodehode."
-// const counter = welcome + message
-// let welcomearray = []
-// let welcomemessage = ""
-// let welcometext = ""
+]
+let activesite = "none"
+let writing = false
 
-// let projectlist = {
-//     iframe : "html/03.12/index.html",
-//     forms : "html/06.12/index.html",
-//     transitions : "html/transitions/index.html",
-//     Animations : "html/animations/index.html"
-// }
-// let projectslist = []
+for (let i = 0 ; i< radbox.length; i++){
+    radbox[i].addEventListener("change", function(){
+        console.log(version);
+        version = this.id;
+        console.log(version);
+    })
+}
 
+const welcomemessage = `welcome to my portfolio. 
+my name is christian and am learning programing at codehode.
+currently i have learned html/css, javascripts and phyton.
+click on one of the topics on top to see my projects`
 
+codebox.textContent = welcomemessage
 
-// startup()
+for (let i = 0; i<welcomemessage.length; i++ ){
+    setTimeout(()=>{
+        let tempmessage = welcomemessage.slice(0, i+1)
+         codebox.textContent = tempmessage
+     },100*i)
+}
 
+for (let i = 0; i<menu.length; i++){
+    menu[i].addEventListener("click", function(){
+        if (this.id === "html"){
+            removelist()
+            makelistHtml()
 
+        }else if (this.id === "javascript"){
+            removelist()
+            makelistjs()
 
-// // html area
-// const showhtml = document.getElementById("showhtml")
-// const showpage = document.getElementById("showpage")
-// let versions = [showhtml, showpage]
-// let version = "html"
+        }
+    })
+}
 
-// for (let i= 0; i<versions.length; i++ ){
-//    versions[i].addEventListener("change",function(){
-//    version=this.value  
-// //    console.log("the page version is:", version); 
-// })
-// }
+let projectlistHtml = {
+    iframe : "html/03.12/",
+    forms : "html/06.12/",
+    transitions : "html/transitions/",
+    Animations : "html/animations/",
+    psudoelements : "html/psudoelements/",
+    lists : "html/task22.11/",
+    borders : "html/task26.11/oppg2/",
+    paralexsite : "html/task26.11/opp1/"
 
-// function makelist(i){
-//     let createlist =document.createElement("p");
-//     createlist.classList = "choselist btn"
-//     createlist.id = projectslist[i]
-//     createlist.textContent=projectslist[i];
-//     projects.appendChild(createlist)
-//     ids = document.querySelectorAll(".choselist")
-//     // console.log(ids);
-// }
+}
 
-
-
-// // remove function
-
-// document.getElementById("clear").addEventListener("click",function(){
-//     removeelements()
-//     startup()
-// })
-// function removeelements(){
-//     while (display.firstChild){
-//         display.removeChild(display.lastChild)
-//     }
-// }
-
-// function removelist(){
-//     while (projects.firstChild){
-//         projects.removeChild(projects.lastChild)
-//     }
-// }
-// // menu area
-// activMenu.addEventListener("mouseover",function() {
-//     showmenu.style.display= "flex"
-//     document.querySelector(".menu-title").style.display ="none"
-
-// })
-
-// activMenu.addEventListener("mouseleave",function() {
-//     showmenu.style.display= "none"
-//     document.querySelector(".menu-title").style.display ="block"
-// })
-// htmlbtn.addEventListener("click", function(){
-//     projectswindow.style.display= "block"
-//     removelist()
-//     for ( let i = 0; i < Object.getOwnPropertyNames(projectlist).length; i++ ){
-//         projectslist.push(Object.getOwnPropertyNames(projectlist)[i])
-//         console.log(projectlist);
-//         makelist(i)
-//         }   
+let projectlistjs = {
+    oppg1 : "javascript/25.11/",
+    oppg2 : "javascript/25.11/oppg1/",
+    oppg3 : "javascript/25.11/oppg2/",
+    oppg4 : "javascript/02.12/",
+    oppg5 : "javascript/09.12/"
+}
 
 
 
-// // switching betwene ifram and HTML view
-// for (let i= 0 ; i < ids.length; i++ ){
-//         ids[i].addEventListener("click",function(){
-//             console.log(version === "html");
-//             if( version === "html"){
-//                 let link = "https://christiankv.github.io/portfolio/" + projectlist[this.id]
-//                 removeelements()
-//                 console.log(link);
-//                 fetch (link)
-//                 .then((response) => response.text().then(createhtmlsite));
-//             } else if ( version === "page"){
-//                 let link ="https://christiankv.github.io/portfolio/" + projectlist[this.id]
-//                 removeelements()
-//             let createdisplay = document.createElement("iframe");
-//             createdisplay.setAttribute("src",link);
-//             createdisplay.style.width= "100%";
-//             createdisplay.style.height= "100%";
-//             createdisplay.classList="iframeDisplay"
-//             display.appendChild(createdisplay);
-// }})}})
-// function createhtmlsite(retrievedText){
-//     console.log(retrievedText);
-//     let htmltext = document.createElement("pre")
-//     htmltext.classList= "htmldisplay"
-//     htmltext.id= "iframehtml"
-//     htmltext.textContent= retrievedText
-//     display.appendChild(htmltext)
-
-// }
-
-//  function startup(){
-//               welcomemessage =  document.createElement("H2") 
-//               welcometext =  document.createElement("p")
-//               projectswindow.style.display= "none"
-              
-
-//     for (let i = 0; i<counter.length; i++){
-//         setTimeout(()=>{
-
-//             if (i<welcome.length){            
-//                 // display.removeChild(display.firstChild)
-//                 // welcomemessage =  document.createElement("H2")  
-//                 welcomearray = counter.slice(0,i+1)
-//                 welcomemessage.textContent = welcomearray
-//                 display.appendChild(welcomemessage)
-//             }
-//             else{
-//                 // display.removeChild(display.firstChild)
-
-//                 welcomearray = counter.slice(welcome.length,i+1)
-//                 welcometext.textContent = welcomearray
-//                 display.appendChild(welcometext)}
-//                 console.log(welcomearray);
-//             }
-//         ,150*i )}
-// }
+function makelistHtml(){
+    for ( let i = 0; i < Object.getOwnPropertyNames(projectlistHtml).length; i++ ){
+        projectslist.push(Object.getOwnPropertyNames(projectlistHtml)[i])
+    let createlist =document.createElement("p");
+    createlist.classList = "choselist btn"
+    createlist.id = projectslist[i]
+    createlist.textContent=projectslist[i];
+    projects.appendChild(createlist)
+    ids = document.querySelectorAll(".choselist")
+    document.getElementById(projectslist[i]).addEventListener("click", function(){
+        console.log(this.id);
+        })
+    }
+    }
 
 
+function makelistjs(){
+for ( let i = 0; i < Object.getOwnPropertyNames(projectlistjs).length; i++ ){
+    projectslist.push(Object.getOwnPropertyNames(projectlistjs)[i])
+let createlist =document.createElement("p");
+createlist.classList = "choselist btn"
+createlist.id = projectslist[i]
+createlist.textContent=projectslist[i];
+projects.appendChild(createlist)
+ids = document.querySelectorAll(".choselist")
+document.getElementById(projectslist[i]).addEventListener("click", function(){
+    console.log(this.id);
+    })}
+}
+function removelist()
+{
+    projectslist = []
+        while (projects.firstChild){
+        projects.removeChild(projects.lastChild)}
+}
+
+for (let i = 0; i<projectslist.length; i++){
+    document.getElementById(projectslist[i]).addEventListener("click", function(){
+        self.classList=("active")
+    })
+}

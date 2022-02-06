@@ -5,18 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Mono:wght@500&family=Rowdies:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="test.css">
+    <link rel="shortcut icon" href="img/Uten navn.png" type="image/x-icon">
 </head>
 <body>
-<div style="width: 50px;">
-<h1 style="margin: 0;">2hrs</h1>
-<div style="margin: 0; display: flex; justify-content: space-between;">
-<h2 style="margin: 0;">+</h2>
-<h2 style="margin: 0;">-</h2>
-</div>
-</div>
+    <header>
+        <div class="title-container">
+            <div class="title">
+                <p>Christian's</p>
+                <h1>portfolio</h1>
+                
+            </div>
+            <div class="menu">
+                <button id="html">html</button>
+                <button id="javascript">javascript</button>
+                <button id="python">python</button>
+                <button id="scrimba">scrimba</button>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="list">
+            <h3>projects</h3>
+            <div class="projects">
 
+            </div>
+        </div>
+        <div class="content">
+            <textarea name="code" id="codearea" readonly ></textarea>
+            
+        </div>
+
+        <div class="radioboxes">
+            <label class="htbtn" id="radht" for="showhtml"> <input type="radio" name="displaymode" id="showhtml" value="html" >html </label>
+                    
+            <label class="htbtn" id="radpg" for="showpage">  <input type="radio" name="displaymode" id="showpage" value="page"checked >page</label>
+            
+            <label class="htbtn" id="radcss" for="showcss"> <input type="radio" name="displaymode" id="showcss" value="css" >css</label>
+
+            <label class="htbtn"  id="radjs" for="showjs"> <input type="radio" name="displaymode" id="showjs" value="javascript"  >javascript</label>
+        </div>
+
+
+
+    </div>
+    
+    <script src="test.js"></script>
 </body>
 </html>

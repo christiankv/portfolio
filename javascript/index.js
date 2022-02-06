@@ -174,18 +174,18 @@ function createhtmlsite(retrievedText){
 
 // menu functions
 
-activMenu.addEventListener("mouseover",function() {
-    showmenu.style.display= "flex"
-    document.querySelector(".menu-title").style.display ="none"
+// activMenu.addEventListener("mouseover",function() {
+//     showmenu.style.display= "flex"
+//     document.querySelector(".menu-title").style.display ="none"
 
-}
-)
+// }
+// )
 
-activMenu.addEventListener("mouseleave",function() {
-    showmenu.style.display= "none"
-    document.querySelector(".menu-title").style.display ="block"
-}
-)
+// activMenu.addEventListener("mouseleave",function() {
+//     showmenu.style.display= "none"
+//     document.querySelector(".menu-title").style.display ="block"
+// }
+// )
 const sidebareslide = document.getElementById("sidebar-title")
 // listevents
 

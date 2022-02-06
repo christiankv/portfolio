@@ -20,6 +20,9 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+
+
 .card-textC{
 padding: 1em;
 }
@@ -43,10 +46,16 @@ padding: 1em;
     font-weight: 700;
     padding: .25em 1em;
 }
-.card-img{
-    object-fit: cover;
-    height: 150px;
+
+.card-img {
+        object-fit: cover;
+        flex-basis: 200px;
+        min-width: 0;
+        min-height: 0;
+        
+        background: yellow;
 }
+
 .footer{
     display: flex;
     justify-content: space-between;
@@ -65,6 +74,29 @@ padding: 1em;
     font-size: 1.25em;
 }
 
-@media (min-width: 600px){
+
+@media (max-width: 600px){
+    .card-C{
+        flex-direction: row;
+    }
+    .card-img{
+        flex-basis: 200px;
+    }
+    .card-textC {
+        display: flex;
+        flex-direction: column;
+    }
+    .card-title {
+        font-size: 2.25rem
+    }
     
+    .card-text {
+        font-size: 1.125rem;
+        max-width: 500px;
+    }
+    
+    .footer {
+        margin-top: auto;
+    }
+
 }
