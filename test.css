@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    opacity: 0.7;
     /* width: 50vw; */
 }
 .title{
@@ -58,9 +59,10 @@
 }
 
 header{
-    background: radial-gradient(ellipse at bottom, #3b707c00 50% , #c25d69a4 70%);
-    /* background: radial-gradient(#3b707c5d 50% , #c25d69a4 70%); */
-    padding: 2rem 0;
+    /* background: radial-gradient(ellipse at bottom, #3b707c00 50% , #c25d69a4 70%); */
+    background-image: url(img/doffen2.png);
+    background-size: cover;
+    background-position: top;
     height: 100vh;
     /* border-bottom: outset 10px #3ac2e12e ; */
     display: flex;
