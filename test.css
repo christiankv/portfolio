@@ -5,14 +5,14 @@ body{
     height: 100vh;
     width: 100vw;
     margin: 0;   
-    background: rgb(41, 53, 75);
+    background: #3ac2e1;
     font-size: 18px;
 }
 
 header{
-    background: radial-gradient(ellipse at bottom, rgba(174, 168, 168, 0.7)70%, rgba(181, 10, 10, 0.7));
+    background: radial-gradient(ellipse at bottom, #3b707c5d 50% , #c25d69a4 70%);
     padding: 2rem 0;
-    border-bottom: outset;
+    /* border-bottom: outset 10px #3ac2e12e ; */
     display: flex;
     justify-content: center;
 
@@ -55,6 +55,7 @@ header{
     top: 1rem;
     right: 2.5rem;
 
+
 }
 
 .menu{
@@ -89,7 +90,7 @@ header{
 }
 
 .list{
-  background: rgb(174, 168, 168);  
+  background: #c2b75d;  
   padding: 1rem;
   border-bottom-right-radius: 4em;
   align-self: flex-start;
@@ -110,7 +111,7 @@ width: 10rem;
 display: flex;
 flex-direction: column;
 align-self: flex-start;
-background: rgba(174, 168, 168, 0.7); 
+background: #c2b75d; 
 padding: 1rem 1rem 2rem;
 border-bottom-left-radius: 4em;
 box-shadow:  0.5px 4px 2px;
@@ -127,23 +128,24 @@ box-shadow:  0.5px 4px 2px;
 background: none;
     text-align: center;
     font-size: 1.2rem;
-    color: gold;
+    color: rgb(3, 24, 51);
     border: none;
     resize: none;
 }
 
 .btn{
     text-align: center;
-    border: outset rgba(138, 131, 131, 0.7) 5px;
+    border: outset rgba(206, 15, 15, 0.7) 5px;
+    background: radial-gradient(rgba(38, 186, 213, 0.446)50%, rgba(206, 15, 15, 0.7));
     padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-
+    border-radius: 2rem;
 }
+
 
 .btn:hover, .active{
     border: inset rgba(138, 131, 131, 0.7) 5px;
     color: white;
-    background-color: rgb(107, 105, 105);
+    background: radial-gradient(rgba(38, 186, 213, 0.446)30%, rgba(206, 15, 15, 0.7)40%);
     cursor: pointer;
 }
 
