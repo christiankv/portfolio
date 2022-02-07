@@ -1,5 +1,64 @@
+class site {
+    constructor(site,type){
+        this.site = site
+        this.type = type
+        const link = "https://christiankv.github.io/portfolio/" + site 
+    }
+        check(){
+            console.log(link);
+        }
+        createsite(){
+            
+            if ( type === "html"){
+                if (version === "showpage"){
+                    let link =  link + "index.html"
+                    iframe.style.display = "block"
+                    codebox.style.display= "none"
+                    iframe.setAttribute("src",link) 
+                }
+                if( version === "showhtml"){
+                    let link =  link + "index.html"
+                    codebox.style.display = "block"
+                    iframe.style.display = "none"
+                    console.log(link);
+                    fetch (link)
+                    .then((response) => response.text().then(createhtmlsite));
+              }  
+                if(version === "showcss"){
+                    let link =  link + "/css/style.css"
+                    codebox.style.display = "block"
+                    codebox.style.textAlign= "left"
+                    iframe.style.display = "none"
+                    console.log(link);
+                    fetch (link)
+                    .then((response) => response.text().then(createhtmlsite));
+                }
+                if(version === "showjs"){
+                    let link =  link + "index.js"
+                    codebox.style.display = "block"
+                    codebox.style.textAlign= "left"
+                    iframe.style.display = "none"
+                    console.log(link);
+                    fetch (link)
+                    .then((response) => response.text().then(createhtmlsite));
+                }
+            }
+            else if (type === "javascript"){
+                if(version === "showjs"){
+                    let link =  link + "index.js"
+                    codebox.style.display = "block"
+                    codebox.style.textAlign= "left"
+                    iframe.style.display = "none"
+                    console.log(link);
+                    fetch (link)
+                    .then((response) => response.text().then(createhtmlsite));
+                }
+            }
+        
+        }}
 const codebox = document.getElementById("codearea")
 const projects = document.querySelector(".projects")
+const iframe = document.getElementById("pageview")
 let version = "showpage"
 let projectslist = []
 let pageevents = []
@@ -20,6 +79,8 @@ let radbox = [
 let activesite = "none"
 let writing = false
 
+
+
 for (let i = 0 ; i< radbox.length; i++){
     radbox[i].addEventListener("change", function(){
         console.log(version);
@@ -35,29 +96,30 @@ click on one of the topics on top to see my projects`
 
 codebox.textContent = welcomemessage
 
-for (let i = 0; i<welcomemessage.length; i++ ){
-    setTimeout(()=>{
-        let tempmessage = welcomemessage.slice(0, i+1)
-         codebox.textContent = tempmessage
-     },100*i)
-}
+// for (let i = 0; i<welcomemessage.length; i++ ){
+//     setTimeout(()=>{
+//         let tempmessage = welcomemessage.slice(0, i+1)
+//          codebox.textContent = tempmessage
+//      },100*i)
+// }
+let type = "html"
 
 for (let i = 0; i<menu.length; i++){
     menu[i].addEventListener("click", function(){
         if (this.id === "html"){
+            type = this.id
             removelist()
             makelistHtml()
-
         }else if (this.id === "javascript"){
+            type = this.id
             removelist()
             makelistjs()
-
         }
     })
 }
 
 let projectlistHtml = {
-    iframe : "html/03.12/",
+    iframe :("html/03.12/"),
     forms : "html/06.12/",
     transitions : "html/transitions/",
     Animations : "html/animations/",
@@ -76,7 +138,7 @@ let projectlistjs = {
     oppg5 : "javascript/09.12/"
 }
 
-
+const sitelist = projectlistHtml + projectlistjs
 
 function makelistHtml(){
     for ( let i = 0; i < Object.getOwnPropertyNames(projectlistHtml).length; i++ ){
@@ -87,11 +149,56 @@ function makelistHtml(){
     createlist.textContent=projectslist[i];
     projects.appendChild(createlist)
     ids = document.querySelectorAll(".choselist")
-    document.getElementById(projectslist[i]).addEventListener("click", function(){
-        console.log(this.id);
-        })
+
     }
+    
+    for (let i = 0; i <projectslist.length; i++){
+      document.getElementById(projectslist[i]).addEventListener("click", function(){
+        let id = this.id
+        console.log(id) 
+        createsite(this.id)
+  
+      })}
+    //     console.log(this.id)
+    //     if (version === "showpage"){
+    //         let link =  "https://christiankv.github.io/portfolio/" + projectlistHtml[this.id] +"index.html"
+    //         iframe.style.display = "block"
+    //         codebox.style.display= "none"
+    //         iframe.setAttribute("src",link) 
+    //     }
+    //     if( version === "showhtml"){
+    //         let link = "https://christiankv.github.io/portfolio/" + projectlistHtml[this.id]+"index.html"
+    //         codebox.style.display = "block"
+    //         iframe.style.display = "none"
+    //         console.log(link);
+    //         fetch (link)
+    //         .then((response) => response.text().then(createhtmlsite));
+    //   }  
+    //     if(version === "showcss"){
+    //         let link = "https://christiankv.github.io/portfolio/" + projectlistHtml[this.id]+"/css/style.css"
+    //         codebox.style.display = "block"
+    //         codebox.style.textAlign= "left"
+    //         iframe.style.display = "none"
+    //         console.log(link);
+    //         fetch (link)
+    //         .then((response) => response.text().then(createhtmlsite));
+    //     }
+    //     if(version === "showjs"){
+    //         let link = "https://christiankv.github.io/portfolio/" + projectlistHtml[this.id]+"index.js"
+    //         codebox.style.display = "block"
+    //         codebox.style.textAlign= "left"
+    //         iframe.style.display = "none"
+    //         console.log(link);
+    //         fetch (link)
+    //         .then((response) => response.text().then(createhtmlsite));
+    //     }
+    // })}
+}
+    
+    function createhtmlsite(retrievedText){
+        codebox.textContent = retrievedText
     }
+    
 
 
 function makelistjs(){
@@ -118,4 +225,55 @@ for (let i = 0; i<projectslist.length; i++){
     document.getElementById(projectslist[i]).addEventListener("click", function(){
         self.classList=("active")
     })
+}
+
+function createsite(id){
+    console.log(type);
+    // const link = "https://christiankv.github.io/portfolio/" + sitelist[id]
+    if ( type === "html"){
+        if (version === "showpage"){
+            let link =  "https://christiankv.github.io/portfolio/" + projectlistHtml[id] + "index.html"
+            iframe.style.display = "block"
+            codebox.style.display= "none"
+            iframe.setAttribute("src",link) 
+        }
+        if( version === "showhtml"){
+            let link =  "https://christiankv.github.io/portfolio/" + projectlistHtml[id] + "index.html"
+            codebox.style.display = "block"
+            iframe.style.display = "none"
+            console.log(link);
+            fetch (link)
+            .then((response) => response.text().then(createhtmlsite));
+      }  
+        if(version === "showcss"){
+            let link =  "https://christiankv.github.io/portfolio/" + projectlistHtml[id] + "/css/style.css"
+            codebox.style.display = "block"
+            codebox.style.textAlign= "left"
+            iframe.style.display = "none"
+            console.log(link);
+            fetch (link)
+            .then((response) => response.text().then(createhtmlsite));
+        }
+        // if(version === "showjs"){
+        //     let link =  "https://christiankv.github.io/portfolio/" + sitelist[id] + "index.js"
+        //     codebox.style.display = "block"
+        //     codebox.style.textAlign= "left"
+        //     iframe.style.display = "none"
+        //     console.log(link);
+        //     fetch (link)
+        //     .then((response) => response.text().then(createhtmlsite));
+        // }
+    }
+    else if (type === "javascript"){
+        if(version === "showjs"){
+            let link =  "https://christiankv.github.io/portfolio/" + projectlistjs[id] + "index.js"
+            codebox.style.display = "block"
+            codebox.style.textAlign= "left"
+            iframe.style.display = "none"
+            console.log(link);
+            fetch (link)
+            .then((response) => response.text().then(createhtmlsite));
+        }
+    }
+
 }
