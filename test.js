@@ -111,6 +111,8 @@ for (let i = 0; i<menu.length; i++){
             removelist()
             makelistHtml()
         }else if (this.id === "javascript"){
+            radjavascript.checked = true;
+            version = "showjs"
             type = this.id
             removelist()
             makelistjs()
@@ -210,9 +212,11 @@ createlist.id = projectslist[i]
 createlist.textContent=projectslist[i];
 projects.appendChild(createlist)
 ids = document.querySelectorAll(".choselist")
-document.getElementById(projectslist[i]).addEventListener("click", function(){
-    console.log(this.id);
-    })}
+// document.getElementById(projectslist[i]).addEventListener("click", function(){
+//     console.log(this.id);
+//     }
+    // )
+}
 }
 function removelist()
 {
@@ -229,7 +233,9 @@ for (let i = 0; i<projectslist.length; i++){
 
 function createsite(id){
     console.log(type);
+    console.log(id);
     // const link = "https://christiankv.github.io/portfolio/" + sitelist[id]
+    if (id === "projectslist"){return}
     if ( type === "html"){
         if (version === "showpage"){
             let link =  "https://christiankv.github.io/portfolio/" + projectlistHtml[id] + "index.html"
@@ -277,3 +283,5 @@ function createsite(id){
     }
 
 }
+
+projects.addEventListener("click", (e) => createsite(e.target.id))
