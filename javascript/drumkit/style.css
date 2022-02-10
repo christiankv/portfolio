@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    background: brown;
+}
+.container{
+    display: grid;
+    grid-template-columns:auto 120px 120px 120px 120px 120px 120px auto;
+    grid-template-rows:  120px 120px 120px 120px;
+    grid-template-areas: 
+
+    ". . drum1 drum2 drum3 . ."
+    ". drum4 . . . drum5 ."
+    ". drum6 . drum7 . drum8 .";
+    gap: 10px;
+
+    
+}
+
+.container>div{
+    border: blue solid 2px;
+    background: cornsilk;
+    box-shadow: black 10px 30px 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container>div:active{
+    box-shadow: gray 10px 30px 5px;}
+
+header {
+padding: 2em 0;
+margin-bottom: 1em;
+text-align: center;
+background: crimson;
+color: gold;
+}
+#openhat{
+    grid-area: drum1;
+}
+#tom{
+    grid-area: drum2;
+}
+#clap{
+    grid-area: drum3;
+}
+#hihat{
+    grid-area: drum4;
+}
+#snare{
+    grid-area: drum5;
+}
+#tink{
+    grid-area: drum6;
+}
+#kick{
+    grid-area: drum7;
+}
+#ride{
+    grid-area: drum8;
+}

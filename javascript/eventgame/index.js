@@ -20,7 +20,7 @@ startbtn.addEventListener("click", (gamestart))
         // console.log(gamelocation.length);
     }
 function gamestart(){
-
+startbtn.style.display= "none"
 startgame = setInterval(game,speed)
 
 }
@@ -43,8 +43,12 @@ console.log(speed);
     gamelocation[currentposition].classList = "gamebar2"
 }else if (currentposition=== 0) {
     clearInterval(startgame)
+    startbtn.style.display= "block"
+    currentposition = 37
 }else{
     clearInterval(startgame)
+    startbtn.style.display= "block"
+    currentposition = 37
 }
 }
 
