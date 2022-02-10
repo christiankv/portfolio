@@ -4,8 +4,10 @@ body{
 }
 .container{
     display: grid;
-    grid-template-columns:auto 120px 120px 120px 120px 120px 120px auto;
-    grid-template-rows:  120px 120px 120px 120px;
+ 
+    grid-template-columns:auto 90px 90px 90px 90px 90px 90px auto;
+    grid-template-rows:  90px 90px 90px 90px;
+
     grid-template-areas: 
 
     ". . drum1 drum4 drum3 . ."
@@ -60,11 +62,4 @@ color: gold;
 }
 #ride{
     grid-area: drum5;
-}
-
-@media (min-width = 800px){
-    .container{
-        grid-template-columns:auto 60px 60px 60px 60px 60px 60px auto;
-        grid-template-rows:  60px 60px 60px 60px;
-    }
 }
