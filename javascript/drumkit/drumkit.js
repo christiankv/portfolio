@@ -13,12 +13,13 @@ const container = document.querySelector(".container")
 
 
 body.addEventListener("keydown", (e)=> playsound(e))
+body.addEventListener("touchstart",(e)=> playsound(e))
 body.addEventListener("mousedown",(e) => playsound(e))
 
 
 body.addEventListener("keyup", click)
 body.addEventListener("mouseup",click)
-
+body.addEventListener("touchend",click)
 
 function click(){
 document.getElementById("tom").style.boxShadow = "black 10px 20px 5px"
