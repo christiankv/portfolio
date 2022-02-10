@@ -11,7 +11,7 @@ body{
     ". . drum1 drum4 drum3 . ."
     ". . . . . drum5 ."
     ". drum6 . drum2 . drum8 ."
-    ". . drum7 drum7 drum7 . ."
+    ". . drum7f drum7 drum7 . ."
     ;
     gap: 20px;
 
@@ -60,4 +60,11 @@ color: gold;
 }
 #ride{
     grid-area: drum5;
+}
+
+@media (max-width = 800px){
+    .container{
+        grid-template-columns:auto 60px 60px 60px 60px 60px 60px auto;
+        grid-template-rows:  60px 60px 60px 60px;
+    }
 }
