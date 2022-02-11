@@ -1,34 +1,66 @@
 
-// let myjson = fetch("/json/caracter.json")
 
-// console.log(myjson);
-
-// console.log(JSON.parse(myjson));
-
-// async function getcaracterinfo(){
-//     fetch("https://christiankv.github.io/portfolio/javascript/jsonfun/json/caracter.json")
-//         .then(response => response.json())
-//         .then(json=> console.log(json))
-        
-
-// }
-// // fetch("https://christiankv.github.io/portfolio/javascript/jsonfun/json/caracter.json")
-// let carcterdata = 
-
-// getcaracterinfo()
-
-// // console.log(carcterdata);
+async function getjson(){
+    const response = await fetch("/javascript/jsonfun/json/caracter.json")
+    const data = await response.json();
+    console.log(data);
+    start(data)
+}
 
 
-const myjson = `{
-    "names":["christian","petter","ola"],
-    "class":["fighter","mage","thief"],
-    "fwep":["sword","2hsword"],
-    "mwep":["staff","orb","book"],
-    "twep":["dagger","bow"]
-}`
-
- let data = JSON.parse(myjson)
 
 
-console.log(data.names);
+
+
+
+let npcs = []
+
+getjson()
+let data
+function start(myjson){
+    
+    data = myjson
+    let npc1 = new caracter(data.names[Math.floor(Math.random()*data.names.length)],data.type[Math.floor(Math.random()*data.type.length)])
+    let npc2 = new caracter(data.names[Math.floor(Math.random()*data.names.length)],data.type[Math.floor(Math.random()*data.type.length)])
+    let npc3 = new caracter(data.names[Math.floor(Math.random()*data.names.length)],data.type[Math.floor(Math.random()*data.type.length)])
+    npcs.push(npc1)
+    npcs.push(npc2)
+    npcs.push(npc3)
+    
+    
+    console.log(npcs);
+}
+
+function  chosewepon(type){
+    if (type === "fighter"){
+        let a = Math.floor(Math.random()*2)
+        console.log(a);
+        return data.fwep[a]
+    } else if (type === "mage"){
+        let a = Math.floor(Math.random()*3)
+        console.log(a);
+        return data.mwep[a]
+    }   else if (type === "thief"){
+        let a = Math.floor(Math.random()*2)
+        console.log(a);
+        return data.twep[a]
+    }
+}
+function setstats(type){
+        if (type === "fighter"){
+            return data.fighter
+        }else if (type ==="mage"){
+            return data.mage
+        }else if (type === "thief"){
+            return data.thief
+        }
+}
+
+class caracter{
+    constructor(name,type,){
+        this.name = `${name} the ${type}`
+        this.class = type
+        this.wepon = chosewepon(this.class)
+        this.stats = setstats(this.class)      
+    }
+}
