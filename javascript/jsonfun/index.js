@@ -20,13 +20,13 @@
 // // console.log(carcterdata);
 
 
-const myjson = `[
-    {"names":["christian","petter","ola"]},
-    {"class":["fighter","mage","thief"]},
-    {"fwep":["sword","2hsword"]},
-    {"mwep":["staff","orb","book"]},
-    {"twep":["dagger","bow"]}
-    ]`
+const myjson = `{
+    "names":["christian","petter","ola"],
+    "class":["fighter","mage","thief"],
+    "fwep":["sword","2hsword"],
+    "mwep":["staff","orb","book"],
+    "twep":["dagger","bow"]
+}`
 
  let data = JSON.parse(myjson)
 
