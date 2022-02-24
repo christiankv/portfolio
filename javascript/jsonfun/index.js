@@ -1,7 +1,7 @@
 
 
 async function getjson(){
-    const response = await fetch("/javascript/jsonfun/json/caracter.json")
+    const response = await fetch("https://raw.githubusercontent.com/christiankv/portfolio/main/javascript/jsonfun/json/caracter.json")
     const data = await response.json();
     console.log(data);
     start(data)
