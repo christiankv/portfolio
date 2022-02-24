@@ -7,12 +7,6 @@ async function getjson(){
     start(data)
 }
 
-
-
-
-
-
-
 let npcs = []
 
 getjson()
