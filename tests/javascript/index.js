@@ -57,11 +57,18 @@ class Pagesetting {
 async function getjson(){
     const response = await fetch("https://raw.githubusercontent.com/christiankv/portfolio/main/tests/json/projects.json")
     const data = await response.json();
-    console.log(data);
-    start(data)
-}
+    console.log(data.html);
 
-let task1 = new Pagesetting(type, "iframe","make a button")
+    start(data)
+    
+}
+getjson()
+
+function start(data){
+    let task1 = new Pagesetting(type, "iframe","sjasa")
+    console.log(task1);
+}
+// let task1 = new Pagesetting(type, html[0],)
 
 // task1.getlink()
 // task1.html()
