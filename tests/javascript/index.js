@@ -31,6 +31,7 @@ radiobtns.forEach(element => {
 
 
 
+
 class Pagesetting {
     constructor(language,name,task){
         this.language = language
@@ -57,16 +58,25 @@ class Pagesetting {
 async function getjson(){
     const response = await fetch("https://raw.githubusercontent.com/christiankv/portfolio/main/tests/json/projects.json")
     const data = await response.json();
-    console.log(data);
+    
+    // console.log(info);
 
-    // start(data)
+    start(data.html)
     
 }
 getjson()
+// function info(data, i ){
+
+// return data.Object.keys(data)[i] + ".name"
+// }
 
 function start(data){
-    let task1 = new Pagesetting(type, data.html.name,"sjasa")
-    console.log(task1);
+    console.log(data);
+    const newdata = JSON.parse(`data.${Object.keys(data)[1]}.name`)
+    console.log(newdata);
+;
+
+
 }
 // let task1 = new Pagesetting(type, html[0],)
 
