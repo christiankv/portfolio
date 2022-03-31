@@ -56,6 +56,13 @@ header{
     letter-spacing: 0.02em;
 }
 
+.hidden{
+    display: none;
+}
+/* .hidden>input:checked ~ #radiohtml{
+    background-color: white;
+} */
+
 
 
 .container{
@@ -78,4 +85,10 @@ header{
     padding: 0.25em 2em;
     opacity: 0.6;
     position: absolute;
+}
+.title--radio>.white{
+    background-color: white;
+}
+.title--radio>.black{
+    background-color: black;
 }

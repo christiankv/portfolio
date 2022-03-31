@@ -1,4 +1,37 @@
-class pagesetting {
+const radiobtn = document.querySelector(".title--radio")
+const btns = [
+    htmlR = document.getElementById("htmlR"),
+    javascriptR = document.getElementById("javascriptR"),
+    pythonR = document.getElementById("pythonR")
+]
+const radiobtns = [
+     html = document.getElementById("html"),
+     javascript = document.getElementById("javascript"),
+     python = document.getElementById("python")
+]
+
+let type = "html"
+radiobtn.addEventListener("click", e => {
+    htmlR.className = "black"
+    javascriptR.className = "black"
+    pythonR.className = "black"
+    e.target.className = "white"
+})
+
+radiobtns.forEach(element => {
+   element.addEventListener("change", e =>{
+    type = e.target.id
+    console.log(type);
+}) 
+}); 
+
+
+
+
+
+
+
+class Pagesetting {
     constructor(language,name,task){
         this.language = language
         this.name = name
@@ -20,13 +53,18 @@ class pagesetting {
     about(){
         console.log(this.task);
     }
-
+}
+async function getjson(){
+    const response = await fetch("https://raw.githubusercontent.com/christiankv/portfolio/main/tests/json/projects.json")
+    const data = await response.json();
+    console.log(data);
+    start(data)
 }
 
-let task1 = new pagesetting("html", "iframe","make a button")
+let task1 = new Pagesetting(type, "iframe","make a button")
 
-task1.getlink()
-task1.html()
-task1.css()
-task1.javascript()
-task1.about()
+// task1.getlink()
+// task1.html()
+// task1.css()
+// task1.javascript()
+// task1.about()
