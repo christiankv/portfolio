@@ -1,4 +1,6 @@
 const radiobtn = document.querySelector(".title--radio")
+const shownprojects = document.querySelector(".main--projects")
+
 const btns = [
     htmlR = document.getElementById("htmlR"),
     javascriptR = document.getElementById("javascriptR"),
@@ -9,6 +11,40 @@ const radiobtns = [
      javascript = document.getElementById("javascript"),
      python = document.getElementById("python")
 ]
+
+let projects = []
+
+let myjson = `
+{
+    "html" : {
+        "oppg1" : {
+            "name": "03.12",
+            "about": "iframe"
+        },
+        "oppg2" : {
+            "name": "04.12",
+            "about": "something"
+        },
+        "oppg3" : {
+            "name": "04.13",
+            "about": "something"
+        },
+        "oppg4" : {
+            "name": "05.12",
+            "about": "iframe"
+            },
+        "oppg5" : {
+            "name": "06.12",
+            "about": "something"
+            },
+        "oppg6" : {
+            "name": "07.13",
+            "about": "something"
+            }
+
+    }
+}
+`
 
 let type = "html"
 radiobtn.addEventListener("click", e => {
@@ -39,11 +75,14 @@ class Pagesetting {
         this.task = task
         this.link = `./${language}/${name}/`
     }
+
+    
     getlink(){
     console.log(this.link);
     }
     html(){
-        console.log(this.link + "index.html")
+        makebtn(this.name,this.link + "index.html" )
+        // console.log()
     }
     css(){
         console.log(this.link + "css/style.css")
@@ -56,32 +95,34 @@ class Pagesetting {
     }
 }
 async function getjson(){
-    const response = await fetch("https://raw.githubusercontent.com/christiankv/portfolio/main/tests/json/projects.json")
-    const data = await response.json();
-    
+    // const response = await fetch("https://raw.githubusercontent.com/christiankv/portfolio/main/tests/json/projects.json")
+    // const data = await response.json();
+    const data = JSON.parse(myjson)
     // console.log(info);
 
     start(data.html)
     
 }
 getjson()
-// function info(data, i ){
-
-// return data.Object.keys(data)[i] + ".name"
-// }
-
-function start(data){
-    console.log(data);
-    const newdata = JSON.parse(`data.${Object.keys(data)[1]}.name`)
-    console.log(newdata);
-;
 
 
+function start(data){   
+    for(let i = 0; i<Object.keys(data).length; i++){
+    let task = new Pagesetting(type, Object.values(data)[i].name, Object.values(data)[i].about)
+    projects.push(task)
+    projects[i].html()
 }
-// let task1 = new Pagesetting(type, html[0],)
+console.log(projects)
+projects[0].getlink()
 
-// task1.getlink()
-// task1.html()
-// task1.css()
-// task1.javascript()
-// task1.about()
+projects[0].css()
+projects[0].javascript()
+projects[0].about()}
+
+function makebtn(name,link){
+    let btn = document.createElement("button")
+    btn.classList = "projects--btn"
+    btn.id = name
+    btn.textContent = name
+    shownprojects.appendChild(btn)
+}
