@@ -14,6 +14,7 @@ const radiobtns = [
 
 let projects = []
 
+
 let myjson = `
 {
     "html" : {
@@ -40,9 +41,32 @@ let myjson = `
         "oppg6" : {
             "name": "07.13",
             "about": "something"
-            }
-
-    }
+            }},
+    "javascript" : {
+        "oppg1" : {
+            "name": "03.12",
+            "about": "iframe"
+        },
+        "oppg2" : {
+            "name": "04.12",
+            "about": "something"
+        },
+        "oppg3" : {
+            "name": "04.13",
+            "about": "something"
+        },
+        "oppg4" : {
+            "name": "05.12",
+            "about": "iframe"
+            },
+        "oppg5" : {
+            "name": "06.12",
+            "about": "something"
+            },
+        "oppg6" : {
+            "name": "07.13",
+            "about": "something"
+            }}
 }
 `
 
@@ -58,6 +82,8 @@ radiobtns.forEach(element => {
    element.addEventListener("change", e =>{
     type = e.target.id
     console.log(type);
+    getjson()
+
 }) 
 }); 
 
@@ -99,11 +125,17 @@ async function getjson(){
     // const data = await response.json();
     const data = JSON.parse(myjson)
     // console.log(info);
-
-    start(data.html)
+    if (type === "html"){
+        start(data.html)
+    }else if (type === "javascript"){
+        start(data.javascript)
+    }else if (type === "python"){
+        start(data.python)
+    }
+    
     
 }
-getjson()
+// getjson()
 
 
 function start(data){   
@@ -114,7 +146,6 @@ function start(data){
 }
 console.log(projects)
 projects[0].getlink()
-
 projects[0].css()
 projects[0].javascript()
 projects[0].about()}
@@ -125,4 +156,5 @@ function makebtn(name,link){
     btn.id = name
     btn.textContent = name
     shownprojects.appendChild(btn)
+
 }
