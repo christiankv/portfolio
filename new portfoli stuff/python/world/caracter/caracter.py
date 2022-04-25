@@ -1,10 +1,11 @@
 import time
 
 class caracter:
-    def __init__(self, name, race,gender):
+    def __init__(self, name, race,gender,player):
         self.name = name
         self.race = race
         self.gender = gender
+        self.player = player
         self.health = 50
         self.attack = 5
         self.defence = 2
