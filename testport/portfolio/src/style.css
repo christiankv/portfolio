@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+.navbar{
+    background-color: aqua;
+    width: fit-content;
+    padding: 2em 2em;
+    position: fixed;
+}
+
+.title>small{
+    position: absolute;
+    top: 2.4em;
+    margin: 0;
+}
+.title>h1{
+    margin: 0;
+}
+.version {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chocebtns{
+    background-color: rgb(209, 223, 21);
+    padding: 0.1em 0.5em;
+    border-radius: 5em;
+    
+}

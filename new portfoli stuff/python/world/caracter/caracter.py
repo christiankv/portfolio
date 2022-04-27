@@ -1,10 +1,11 @@
 import time
+import random
 
 class caracter:
-    def __init__(self, name, race,gender,player):
-        self.name = name
+    def __init__(self,player,race):
+        self.name = ""
         self.race = race
-        self.gender = gender
+        self.gender = "" 
         self.player = player
         self.health = 50
         self.attack = 5
@@ -23,6 +24,31 @@ class caracter:
         print("muscles: ", self.muscles, "musclesXP: ", self.musclesXP,)
         print("skin: ", self.skin, "skinXP: ", self.skinXP)
         print("training available:", self.trainingslot)
+
+    def caractercreation(self):
+        if self.player == "player":
+            self.name = input("your name:")
+            print("chose your gender")
+            print("1: male, 2: female")
+            choser = input("choice)")
+        else:
+            if self.race == "human":
+                self.name= self.race + "bandit"
+
+            elif self.race == "wolf":
+                self.name = self.race + "hunter"
+            choser = random.randint(1,2)
+        try:
+            choser= int(choser)
+            if choser == 1:
+                self.gender = "male"
+            elif choser == 2:
+                self.gender = "female"
+        except:
+            self.gender = "male"
+
+
+    
 
     def rest(self):                   
         wait =10
@@ -65,38 +91,40 @@ class caracter:
         if self.trainingslot >0:
             print("1. train skin")
             print ("2 train muscles")
-            choser = input("chose")
-            try:
-                choser =int(choser)
-                if choser == 1 :
-                    wait =5
-                    while wait > 0:  
-                        print(wait)  
-                        time.sleep(1)   
-                        wait -=1
+            if self.player == "player":
+                choser = input("chose")
+            else:
+                try:
+                    choser =int(choser)
+                    if choser == 1 :
+                        wait =2
+                        while wait > 0:  
+                            print(wait)  
+                            time.sleep(1)   
+                            wait -=1
 
-                    self.trainingslot -= 1
-                    value = 0.1*self.skin
-                    exp = int(10/ value)
-                    # print(value)
-                    # print(exp)
-                    print("gained "+ str(exp)  +" skin XP")
-                    self.levelup("skin",exp)
+                        self.trainingslot -= 1
+                        value = 0.1*self.skin
+                        exp = int(10/ value)
+                        # print(value)
+                        # print(exp)
+                        print("gained "+ str(exp)  +" skin XP")
+                        self.levelup("skin",exp)
 
-                elif choser == 2 :
-                    wait =5
-                    while wait > 0:  
-                        print(wait)
-                        time.sleep(1)   
-                        wait -=1
-                    self.trainingslot -= 1
-                    value = 0.1*self.muscles
-                    exp = int(10/ value)
-                    # print(value)
-                    # print(exp)
-                    print("gained "+ str(exp)  +" muscle XP")
-                    self.levelup("muscle",exp)
-            except: pass
+                    elif choser == 2 :
+                        wait =2
+                        while wait > 0:  
+                            print(wait)
+                            time.sleep(1)   
+                            wait -=1
+                        self.trainingslot -= 1
+                        value = 0.1*self.muscles
+                        exp = int(10/ value)
+                        # print(value)
+                        # print(exp)
+                        print("gained "+ str(exp)  +" muscle XP")
+                        self.levelup("muscle",exp)
+                except: pass
         else: 
             print("cant train more go fight more monsters")
 
