@@ -1,3 +1,4 @@
+from cgitb import reset
 from caracter.caracter import caracter
 import random
 class location:
@@ -26,15 +27,14 @@ class location:
             choser = input("chose action")
             try:
                 choser = int(choser)
+                if choser == 1:
+                    caracter.rest()
+                elif choser == 2:
+                    caracter.training()
+                elif choser == 3:
+                    caracter.stats()
             except:
                 return
-            if choser == 1:
-                caracter.rest()
-            elif choser == 2:
-                caracter.training()
-            elif choser == 3:
-                caracter.stats()
-
 
 
         
