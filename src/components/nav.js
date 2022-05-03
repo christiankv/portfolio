@@ -6,14 +6,18 @@ export default function Nav(prop){
 
     // console.log(info);
 
-    const card = info.map(element => <div className="card"
-                    id={element.id}
-                    onClick={prop.clickevent}>
+    const card = info.map((element, index)=> {   
+                    // console.log(index);
+                    const theclass = "card " + element.id
+                    return(
+                 <div className={theclass} 
+                    
+                    onClick={()=>prop.clickevent(theclass, index)}>
                     <small className="c-languange">{element.language}</small> <h3 className="c-title">{element.title}</h3> 
                     
                     <p className="c-info">{element.info}</p>
             
-                </div>)
+                </div>)})
     
 
 

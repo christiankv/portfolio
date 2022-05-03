@@ -2,6 +2,7 @@ body {
     margin: 0;
     /* background-color: rgb(65, 64, 64); */
     color: white;
+    
 }
 .container{
     width: 100vw;
@@ -9,11 +10,11 @@ body {
     background-color: rgba(0, 0, 0, 0.699);
     display: grid;
     grid-template-columns: 15em auto 15em;
-    grid-template-areas: "nav . info"
+    grid-template-areas: "nav main info"
     "nav main info"
-    "nav none info";
+    "nav main info";
     /* gap: 1em; */
-    column-gap: 1em;
+    /* column-gap: 1em; */
 }
 
 .navbar{
@@ -27,6 +28,7 @@ body {
     top: 0;
     grid-area: nav;
     border-right: 1px rgba(155, 146, 146, 0.09) solid;
+    max-height: 100vh;
 }
 
 .title>small{
@@ -37,17 +39,17 @@ body {
 .title>h1{
     margin: 0;
 }
-.version {
+/* .version {
     margin-top: 1em;
     display: flex;
     justify-content: space-between;
-}
+} */
 
 .chocebtns{
     background-color: rgb(9, 55, 124);
     text-align: center;
     color: yellow;
-    padding: 0.1em 0.5em;
+    /* padding: 0.1em 0.5em; */
     border-radius: 5em;  
 }
 
@@ -63,9 +65,12 @@ body {
     /* right: 0;
     top: 0; */
     grid-area: info;
+    max-height: 100vh;
 }
 .main{
     grid-area: main;
+    position: relative;
+    max-height: 100vh;
 }
 
 .infowindow>h2{
@@ -103,3 +108,31 @@ grid-area: language;
     grid-area: info;
     margin: 0;
     }
+.main-content{
+    width: 99%;
+    height: 99vh;
+    margin: 0;
+    background-color: inherit;
+    border: none;
+}
+.button-container{
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 2em;
+}
+
+.buttons{
+    text-align: center;
+    color: rgba(229, 231, 180, 0.664);
+    margin: 1em;
+    background-color: rgba(78, 74, 74, 0.699);
+    width: 3em;
+    padding: 0.5em 0;
+    border-radius: 3em;
+}
+
+.buttons:hover{
+    background-color: rgba(0, 0, 0, 0.699);
+    color: rgb(252, 235, 1);
+}
