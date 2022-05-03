@@ -12,6 +12,8 @@ class caracter:
         self.health = 50
         self.attack = 5
         self.defence = 2
+        self.defencebonus = 1.1
+        self.attackbonus = 1.1
         # caracter levels
         self.level = 1
         self.skin =1
@@ -30,6 +32,7 @@ class caracter:
         print(self.name, " ", self.race)
         print("level: ", self.level, "exp: ", self.baseXP)
         print("health: ",self.health,"defence: ", self.defence,"attack: ", self.attack)
+        print("defenceskill ",self.defenceskill,"attackskill: ", self.attackskill)
         print("muscles: ", self.muscles, "musclesXP: ", self.musclesXP,)
         print("skin: ", self.skin, "skinXP: ", self.skinXP)
         print("training available:", self.trainingslot)
@@ -93,9 +96,16 @@ class caracter:
             if self.defenceskillexp >= 100:
                 self.defenceskillexp = self.defenceskillexp % 100
                 self.defenceskill += 1
-                self.attack = 5*self.muscles
-                print("muscles level up")
-                self.levelup("skin", 0)
+                self.defencebonus+= 0.1
+                
+                print("defence skill level up")
+                self.levelup("skill", 0)
+            elif self.attackskillexp >= 100:
+                self.attackskillexp = self.defenceskillexp % 100
+                self.attackskill += 1
+                self.attackbonus+= 0.1
+                print("attack skill level up")
+                self.levelup("skill", 0)
 
         else: return
         if self.baseXP >= 100 :
@@ -152,7 +162,8 @@ class caracter:
             print("cant train more go fight more monsters")
 
     def fight(self, target):
-        while self.health > 0 | target.health > 0:
+        while self.health > 0 and target.health > 0:
+            print("player health", self.health, "enemy health", target.health)
             print("1. attack")
             print("2. defend")
             choser = input("chose:")
@@ -171,8 +182,8 @@ class caracter:
                     value = 0.05*defence*self.defenceskill
                     exp = int(10/ value)
                     self.defenceskillexp+= exp
-                else:
-                    return
+
+                    
 
             except:
                 return

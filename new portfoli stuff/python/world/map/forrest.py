@@ -1,4 +1,4 @@
-from cgitb import reset
+
 from caracter.caracter import caracter
 import random
 class location:
@@ -19,20 +19,27 @@ class location:
         print(attackers[0])
         attackers[0].stats()
 
-    def camp(self,player,caracter):
+    def camp(self,player,carac):
         if player == "player":
             print("1.rest")
             print("2.train")
             print("3.check stats")
+            print("4.fight")
             choser = input("chose action")
             try:
                 choser = int(choser)
                 if choser == 1:
-                    caracter.rest()
+                    carac.rest()
                 elif choser == 2:
-                    caracter.training()
+                    carac.training()
                 elif choser == 3:
-                    caracter.stats()
+                    carac.stats()
+                elif choser == 4:
+                    print("test")
+                    wolf = caracter("npc","wolf")
+                    wolf.caractercreation()
+                    wolf.stats()
+                    carac.fight(wolf)
             except:
                 return
 
