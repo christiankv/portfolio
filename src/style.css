@@ -126,9 +126,8 @@ grid-area: language;
     text-align: center;
     color: rgba(229, 231, 180, 0.664);
     margin: 1em;
-    background-color: rgba(78, 74, 74, 0.699);
-    width: 3em;
-    padding: 0.5em 0;
+    background-color: rgba(56, 53, 53, 0.699);
+    padding: 0.5em 0.7em;
     border-radius: 3em;
 }
 
