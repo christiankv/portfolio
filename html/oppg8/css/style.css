@@ -1,0 +1,78 @@
+ table{
+    width: 100%;
+     background-color: cadetblue; 
+    border-radius: 20px;
+} 
+
+ th, td{
+text-align: center;
+border: 4px solid rgb(209, 123, 123);
+border-radius: 20px;
+
+}  
+tr:nth-child(odd) {
+background-color: darkblue;
+color: chartreuse;
+}
+tr:nth-child(even) {
+background-color: chartreuse;
+color: darkblue;
+}
+
+h1 {
+    border: 10px outset orangered;
+    background-color: orange;
+    width: 140px;
+    text-align: center;
+}
+h2 {
+    border: 5px inset lightcyan;
+    background-color: darkcyan;
+    width: 140px;
+    text-align: center;
+}
+h3{
+    border: 4px dotted purple;
+    background-color: pink;
+    width: 140px;
+    text-align: center;
+}
+
+h4{
+    border:6px dashed greenyellow;
+    background-color: green;
+    width: 140px;
+    text-align: center;
+}
+
+h5{
+    border: 3px solid blue;
+    border-top: 6px solid lightskyblue;
+    background-color: cyan;
+    width: 140px;
+    text-align: center;
+}
+
+
+h6{
+    border: 8px groove black;
+    background-color: gray;
+    width: 140px;
+    text-align: center;
+}
+
+.par1{
+border: double 10px olive;
+background-color: olivedrab;
+}
+.par2{
+    border: palegoldenrod ridge  6px;
+    background-color:plum;
+
+}
+.par3{
+    border: hidden black 8px;
+    background-color: blueviolet;
+    border-radius: 20%;
+
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="columns">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#oppg1">Description Lists</a></li>
+                <li><a href="#oppg2">iframes</a></li>
+                <li><a href="#oppg3">forms</a></li>
+            </ul>
+        </div>
+        <div class="container">
+                <div class="oppg1">
+                    <h2 > Description Lists</h2>
+                    <dl>
+                    <dt>
+                        coffee
+                    </dt>
+                    <dd>
+                        hot 
+                    </dd>
+                    <dt>
+                        tea
+                    </dt>
+                    <dd>
+                        hot
+                    </dd>
+                    <dt>
+                        coke
+                    </dt>
+                    <dd>
+                        cold
+                    </dd>
+                </dl>
+                </div>
+                
+                <div class="oppg2">
+                    <h2 id="oppg2">iframes</h2>
+                    <h3>a. Display a default iframe without height and width</h3><br>
+                    <iframe src="https://app.dokker.com/#home"></iframe>
+                <h3> b. Display an iframe with height and width.</h3><br>
+                    <iframe src="https://app.dokker.com/#home" style="height: 200px;width: 200px; "></iframe>
+                <h3> c. Display an iframe with height and width using Styles also Add border attribute </h3><br>
+                    <iframe src="https://app.dokker.com/#home" style="height: 200px;       width: 200px;border: dashed 2px red "></iframe>
+                <h3> d. .Display an iframe with height and width using Styles also with border:none;</h3><br>
+                    <iframe src="https://app.dokker.com/#home" style="height: 200px;       width: 200px;border: none; "></iframe>
+                    <h3>e. Display an iframe as the target frame for a link.</h3><br>
+                    <iframe src="" name="iframe" style="width: 600px; height: 400px;"></iframe>
+                    <a href="https://app.dokker.com/#home"target="iframe">click here</a>
+                </div>
+            
+
+                <div class="oppg3">
+                    <h2 id="oppg3">forms</h2>
+                    <form action="">
+                    <label for="">first name
+                    <input type="text"><br><br>    
+                    </label>
+                    
+                    <label for="">last name
+                    <input type="text"><br><br>
+                    </label>
+
+                    <label for="">gender</label><br><br>
+                    <input type="radio" name="gender" id="male">
+                    <label for="male">male</label>
+                    <input type="radio" name="gender" id="female" >    
+                    <label for="female">female</label>
+                    <input type="radio" name="gender" id="both" >    
+                    <label for="both">both</label><br><br>
+                    <label for="">favorit animal</label><br><br>
+                    <input type="checkbox" name="" id="cat">
+                    <label for="cat">cat</label>
+                    <input type="checkbox" name="" id="dog">
+                    <label for="dog">dog</label>
+                    <input type="checkbox" name="" id="fish">
+                    <label for="fish">fish</label>
+                    <input type="checkbox" name="" id="bird">
+                    <label for="bird">bird</label> <br><br>
+                    <input type="submit">
+                </form>
+                </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
