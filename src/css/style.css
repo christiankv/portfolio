@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hind+Siliguri:wght@500&display=swap');
+body{
+    margin: 0;
+    background-image: radial-gradient(#B9B9B9, #918a8a);
+    font-family: 'Bebas Neue', cursive;
+}
+
+.nav>p{
+    font-size: 1.45em;
+}
+
+.nav>p:hover{
+    cursor: pointer;
+}
+.container{
+    display: grid;
+    grid-template-columns: 15em auto;
+    grid-template-areas: "nav main";
+}
+.nav{
+    background-image: radial-gradient(#B2ACAC, #918a8a);
+    /* background-color: #B2ACAC; */
+    grid-area: nav;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+.title{
+    position: relative;
+}
+.title-top{
+    position: absolute;
+    font-size: 1em;
+    top: 0.5em;
+    left: 2em;
+}
+.title-main{
+    font-size: 2.3em;
+    font-family: 'Hind Siliguri', sans-serif
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.projectsall{
+    max-width: 60vw;
+    display: flex;
+    overflow:  auto;
+
+}
+.highlights{
+    max-width: 60vw;
+    display: flex;
+    overflow:  auto; 
+}
+
+.card{
+    margin: 1em;
+
+    background-color: white;
+    color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 2em 5em 5em ;
+    /* padding: 2px; */
+    border: 0.25em solid rgba(99, 61, 3, 0.836);
+    border-radius: 10px;
+    width: 15em;
+    grid-template-areas: "language title title"
+    "info info link"
+    "info info link"
+    ;
+
+}
+
+.card:hover{
+    background-color: rgba(215, 230, 235, 0.685);
+    /* cursor: pointer; */
+}
+
+.c-languange{
+    background-color: rgba(0, 247, 255, 0.281);
+    margin: 1px;
+    padding: 0 0.5em;
+    border-radius: 1em;
+    width: fit-content;
+    height: fit-content;
+    grid-area: language;
+}
+
+
+.c-title{
+    grid-area: title;
+    text-align: center;
+    margin-bottom: 0;
+    }
+
+.c-info{
+    border-top: solid black 1px;
+    grid-area: info;
+    margin: 0;
+    }
+.c-links{
+    text-align: end;
+    border-top: solid black 1px;
+    margin: 0;
+    grid-area: link;
+}
+
+a:hover{
+    color: rgb(162, 0, 255);
+}
