@@ -20,6 +20,6 @@ app.post("/contact", async(req, res)=>{
     res.json(contact)
 } )
 
-app.listen(3001,()=> {
+app.listen("https://mynanoportfolio.herokuapp.com/",()=> {
     console.log("server")
 })
