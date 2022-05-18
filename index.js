@@ -7,7 +7,7 @@ const contactModel = require("./models/contact")
 
 const cors = require("cors")
 
-mongoose.connect("mongodb+srv://user:EXNKHTbT9KldkwWo@cluster0.4hqom.mongodb.net/portfolio?retryWrites=true&w=majority")
+
 
 app.use(express.json())
 app.use(cors())
